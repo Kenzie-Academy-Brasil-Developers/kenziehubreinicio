@@ -8,7 +8,9 @@ export const LoginPage = () =>{
     return(
         <>
             <HeaderPages>
-            <img src={Logo} alt="Kenzie Hub Logo" />
+            <div className="container flex flex-center">
+                <img src={Logo} alt="Kenzie Hub Logo" />
+            </div>
             </HeaderPages>
             <FormLogin />
         </>

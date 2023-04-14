@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod"
 import { Input } from "../input";
 import { formSchemaLogin } from "./formSchemaLogin";
+import { StyledForm } from "../../styles/form";
 
 export const FormLogin = () => {
 
@@ -13,7 +14,6 @@ export const FormLogin = () => {
     useEffect(() => {
         async function getAllUsers() {
             const response = await api.get('/users')
-            console.log(response)
             setUsers(response.data)
         }
         getAllUsers()
@@ -36,18 +36,17 @@ export const FormLogin = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit(submit)}>
+            <StyledForm className="flex flex-column container" onSubmit={handleSubmit(submit)}>
                 <h2>Login</h2>
                 <Input label="Email" type="email" register={register('email')} />
-                {errors.email ? <p>{errors.email.message}</p> : null}
+                {errors.email ? <span>{errors.email.message}</span> : null}
                 <Input label="Senha" type="password" register={register('password')} />
-                {errors.password ? <p>{errors.password.message}</p> : null}
-
+                {errors.password ? <span>{errors.password.message}</span> : null}
                 <button type="submit">Entrar</button>
-            </form>
+                <p>Ainda não possui uma conta?</p>
+                <Link to='/register'>Cadastre-se</Link>
+            </StyledForm>
 
-            <p>Ainda não possui uma conta?</p>
-            <Link to='/register'>Cadastre-se</Link>
         </>
     )
 }

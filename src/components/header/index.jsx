@@ -1,7 +1,9 @@
+import { StyledHeader } from "../../styles/header"
+
 export const HeaderPages = ({children}) =>{
     return(
-        <header>
+        <StyledHeader>
             {children}
-        </header>
+        </StyledHeader>
     )
 }

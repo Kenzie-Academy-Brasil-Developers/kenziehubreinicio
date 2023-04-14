@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form"
 import { Input } from "../input"
 import {zodResolver} from "@hookform/resolvers/zod"
 import { formSchemaRegister } from "./formSchemaRegister"
+import { StyledForm } from "../../styles/form"
 
 
 
@@ -16,8 +17,8 @@ export const FormRegister = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit(handleRegister)}>
-            <div className="header--form">
+        <StyledForm className="flex flex-column container" onSubmit={handleSubmit(handleRegister)}>
+            <div>
                 <h2>Crie sua conta</h2>
                 <p>Rapido e grátis, vamos nessa</p>
             </div>
@@ -85,6 +86,6 @@ export const FormRegister = () => {
             <p>{errors.course_module?.message}</p>
 
             <button>Cadastrar</button>
-        </form>
+        </StyledForm>
     )
 }

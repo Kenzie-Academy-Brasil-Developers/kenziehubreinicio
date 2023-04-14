@@ -1,7 +1,9 @@
+import { StyledSection } from "../../styles/section"
+
 export const SectionUser = ({children}) =>{
     return(
-        <section>
+        <StyledSection className='container flex flex-row flex-between'>
             {children}
-        </section>
+        </StyledSection>
     )
 }

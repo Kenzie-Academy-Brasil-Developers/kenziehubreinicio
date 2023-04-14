@@ -9,8 +9,10 @@ export const RegisterPage = () => {
     return (
         <>
             <HeaderPages>
-                <img src={Logo} alt="Kenzie Hub Logo" />
-                <Link to={'/'}>Voltar</Link>
+                <div className="container flex-between flex">
+                    <img src={Logo} alt="Kenzie Hub Logo" />
+                    <Link to={'/'}>Voltar</Link>
+                </div>
             </HeaderPages>
             <FormRegister />
         </>

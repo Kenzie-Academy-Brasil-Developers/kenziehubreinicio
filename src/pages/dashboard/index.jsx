@@ -9,12 +9,12 @@ import { Link, useParams } from "react-router-dom"
 export const DashboardPage = () =>{
 
     const {id} = useParams();
-    console.log(id)
+    // console.log(id)
     
     useEffect(() =>{
         async function getUsers() {
            const response = await api.get('/users')
-           console.log(response.data)
+        //    console.log(response.data)
         }
 
         getUsers()
@@ -24,8 +24,10 @@ export const DashboardPage = () =>{
     return(
         <>
             <HeaderPages>
-                <img src={Logo} alt="Kenzie Hub Logo" />
-                <Link to={'/'}>Sair</Link>
+                <div className="container flex flex-between">
+                    <img src={Logo} alt="Kenzie Hub Logo" />
+                    <Link to={'/'}>Sair</Link>
+                </div>
             </HeaderPages>
             <SectionUser>
                 <h1>Olá Joao</h1>

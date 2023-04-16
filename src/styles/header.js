@@ -1,7 +1,13 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledHeader = styled.header`
+
     padding: 30px 0;
+
+    div{
+        width: 90%;
+        margin: 0 auto;
+    }
 
     a{
         height: 40px;
@@ -14,8 +20,22 @@ export const StyledHeader = styled.header`
     }
 
     @media(min-width:1024px){
-        width: 40%;
+        max-width: 370px;
+        width: 100%;
         margin: 0 auto;
     }
+
+
+    ${({pageType})=>{
+        if(pageType === 'dashboard'){
+            return css`
+                @media(min-width:1024px){
+                    width: 90%;
+                    margin: 0 auto;
+                }
+            `
+        }
+    }}
+
 
 `

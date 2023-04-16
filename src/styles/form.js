@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
 export const StyledForm = styled.form`
-    gap: 10px;
+
     background: var(--grey-3);
     color: var(--grey-0);
     padding: 15px;
+    gap: 10px;
+    width: 90%;
+    margin: 0 auto;
 
     h2{
         text-align: center;
@@ -72,12 +75,15 @@ export const StyledForm = styled.form`
         border-radius:var(--global-radius) ;
     }
 
-    select{
-
+    span{
+        font-size: var(--font-12);
+        color: var(--primary-color-focus);
     }
 
-    @media(min-width: 1024px){
-        width: 35%;
+    @media(min-width:1024px){
+        max-width: 370px;
+        width: 100%;
+        margin: 0 auto;
     }
     
 `

@@ -1,4 +1,3 @@
-
 import { RoutesMain } from './routes'
 import { GlobalReset } from './styles/reset'
 import { GlobalStyle } from './styles/global'
@@ -9,6 +8,7 @@ function App() {
     <div className="App">
       <GlobalReset />
       <GlobalStyle />
+
       <RoutesMain />
     </div>
   )

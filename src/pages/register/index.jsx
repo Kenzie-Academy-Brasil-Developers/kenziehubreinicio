@@ -9,7 +9,7 @@ export const RegisterPage = () => {
     return (
         <>
             <HeaderPages>
-                <div className="container flex-between flex">
+                <div className="flex flex-between">
                     <img src={Logo} alt="Kenzie Hub Logo" />
                     <Link to={'/'}>Voltar</Link>
                 </div>

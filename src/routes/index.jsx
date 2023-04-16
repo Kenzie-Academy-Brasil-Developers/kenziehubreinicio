@@ -10,7 +10,9 @@ export const RoutesMain = () =>{
         <Routes>
             <Route path='/' element={<LoginPage />} />
             <Route path='/register' element={<RegisterPage />} />
-            <Route path='/dashboard/:id' element={<DashboardPage />} />
+            {/* <AuthProvider> */}
+                <Route path='/dashboard/:id' element={<DashboardPage />} />
+            {/* </AuthProvider> */}
             <Route path='*' element={<NotFoundPage />} />
         </Routes>
       

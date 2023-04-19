@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-export const StyledHeader = styled.header`
+export const StyledHeaderDash = styled.header`
 
     padding: 30px 0;
 
@@ -23,7 +23,6 @@ export const StyledHeader = styled.header`
     }
 
     @media(min-width:1024px){
-        max-width: 370px;
         width: 100%;
         margin: 0 auto;
     }

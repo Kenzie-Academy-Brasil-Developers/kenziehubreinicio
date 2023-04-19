@@ -1,37 +1,44 @@
-import { HeaderPages } from "../../components/header"
+
 import Logo from "../../assets/logo.svg"
 import { SectionUser } from "../../components/sectionUser"
-import { useEffect } from "react"
-import { api } from "../../services/api"
-import { Link, useParams } from "react-router-dom"
+import { useContext } from "react"
+import { AuthContext } from "../../providers/AuthProvider"
+import { Navigate } from "react-router-dom"
+import { StyledHeaderDash } from "../../styles/headerDash"
 
 
-export const DashboardPage = () =>{
+export const DashboardPage = ({userLogout}) =>{
 
-    const {id} = useParams();
-    // console.log(id)
+    const {user, loading} = useContext(AuthContext);
+   
+    if (loading) {
+        return <div>Carregando...</div>
+    }
+
+    if (!user) {
+        return <Navigate to='/' />
+    }
     
-    useEffect(() =>{
-        async function getUsers() {
-           const response = await api.get('/users')
-        //    console.log(response.data)
-        }
-
-        getUsers()
-    },[])
-
-
     return(
         <>
-            <HeaderPages>
-                <div className="container flex flex-between">
+            <StyledHeaderDash>
+                <div className="container flex flex-between header-dash">
                     <img src={Logo} alt="Kenzie Hub Logo" />
-                    <Link to={'/'}>Sair</Link>
+                    <a onClick={()=>(userLogout())}>Sair</a>
                 </div>
-            </HeaderPages>
+            </StyledHeaderDash>
             <SectionUser>
-                <h1>Olá Joao</h1>
-                <p>Primeiro módulo  Introdução ao Frontend</p>
+                <div className="border-bottom border-top height container flex flex-row flex-between">
+                    <h1>Olá {user.name}</h1>
+                    <p>Primeiro módulo  Introdução ao Frontend</p>
+                </div>
+            </SectionUser>
+            <SectionUser>
+                <div className="flex flex-column">
+                    <h2>Que pena! Estamos em desenvolvimento!</h2>
+                    <p>Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
+                </div>
+                    
             </SectionUser>
         </>
     )

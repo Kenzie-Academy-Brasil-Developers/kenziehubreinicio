@@ -64,4 +64,19 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Inter', sans-serif;
     }
 
+    .border-bottom{
+        border-bottom: 1px solid var(--grey-3);
+    }
+
+    .border-top{
+        border-top: 1px solid var(--grey-3);
+    }
+
+    .height{
+        height: 100%;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        width: 100%;
+    }
+
 `

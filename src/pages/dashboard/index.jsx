@@ -1,30 +1,24 @@
 
 import Logo from "../../assets/logo.svg"
 import { SectionUser } from "../../components/sectionUser"
+import { StyledHeaderDash } from "../../styles/headerDash"
+import { SectionTecnology } from "../../components/TecnologyNav"
 import { useContext } from "react"
 import { AuthContext } from "../../providers/AuthProvider"
-import { Navigate } from "react-router-dom"
-import { StyledHeaderDash } from "../../styles/headerDash"
 
 
-export const DashboardPage = ({userLogout}) =>{
+export const DashboardPage = () =>{
 
-    const {user, loading} = useContext(AuthContext);
-   
-    if (loading) {
-        return <div>Carregando...</div>
-    }
-
-    if (!user) {
-        return <Navigate to='/' />
-    }
+    const {signOut,user} = useContext(AuthContext)
     
+
+
     return(
         <>
             <StyledHeaderDash>
                 <div className="container flex flex-between header-dash">
                     <img src={Logo} alt="Kenzie Hub Logo" />
-                    <a onClick={()=>(userLogout())}>Sair</a>
+                    <a onClick={()=>(signOut())}>Sair</a>
                 </div>
             </StyledHeaderDash>
             <SectionUser>
@@ -33,13 +27,8 @@ export const DashboardPage = ({userLogout}) =>{
                     <p>Primeiro módulo  Introdução ao Frontend</p>
                 </div>
             </SectionUser>
-            <SectionUser>
-                <div className="flex flex-column">
-                    <h2>Que pena! Estamos em desenvolvimento!</h2>
-                    <p>Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
-                </div>
-                    
-            </SectionUser>
+            
+            <SectionTecnology />
         </>
     )
 }

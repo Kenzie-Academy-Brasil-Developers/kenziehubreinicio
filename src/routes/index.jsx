@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { LoginPage } from "../pages/LoginPage"
-import { NotFoundPage } from "../pages/notFound"
+import { NotFoundPage } from "../pages/NotFound"
 import { RegisterPage } from "../pages/RegisterPage"
 import { DashboardPage } from "../pages/DashboardPage"
 import { useState } from "react"

@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"
-import { InputDefault } from "../input"
+import { InputDefault } from "../Input"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { formSchemaRegister } from "./formSchemaRegister"
 import { StyledForm } from "../../styles/form"
@@ -25,6 +25,7 @@ export const FormRegister = () => {
       const { data } = await api.post("users", formData)
       setLoading(false)
       toast.success("Cadastro realizado!")
+      navigate('/')
     } catch (error) {
       console.log(error)
       setLoading(false)

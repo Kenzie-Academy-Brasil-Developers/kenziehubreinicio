@@ -1,6 +1,6 @@
 import { HeaderPages } from "../../components/HeaderPages"
 import Logo from "../../assets/logo.svg"
-import { FormLogin } from "../../components/formLogin"
+import { FormLogin } from "../../components/FormLogin"
 
 
 export const LoginPage = ({ setUser }) => {

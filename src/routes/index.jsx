@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom"
-import { LoginPage } from "../pages/login"
+import { LoginPage } from "../pages/LoginPage"
 import { NotFoundPage } from "../pages/notFound"
-import { RegisterPage } from "../pages/register"
-import { DashboardPage } from "../pages/dashboard"
+import { RegisterPage } from "../pages/RegisterPage"
+import { DashboardPage } from "../pages/DashboardPage"
 import { useState } from "react"
 import { ProtectedRoutes } from "../components/ProtectedRoutes"
 

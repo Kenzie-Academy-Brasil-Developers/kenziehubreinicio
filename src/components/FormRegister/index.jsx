@@ -1,50 +1,50 @@
 import { useForm } from "react-hook-form"
-import { Input } from "../input"
-import {zodResolver} from "@hookform/resolvers/zod"
+import { InputDefault } from "../input"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { formSchemaRegister } from "./formSchemaRegister"
 import { StyledForm } from "../../styles/form"
 import { api } from "../../services/api"
-import { toast , ToastContainer  } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 
 
 export const FormRegister = () => {
 
-    const [loading, setLoading] = useState(false);
-    const { register, handleSubmit, formState: { errors } } = useForm({
-        resolver: zodResolver(formSchemaRegister),
-    });
+  const [loading, setLoading] = useState(false)
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: zodResolver(formSchemaRegister),
+  })
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const userRegister = async (formData) => {
     try {
-      setLoading(true);
-      const { data } = await api.post("users", formData);
-      setLoading(false);
-      toast.success("Cadastro realizado!");
+      setLoading(true)
+      const { data } = await api.post("users", formData)
+      setLoading(false)
+      toast.success("Cadastro realizado!")
     } catch (error) {
-      console.log(error);
-      setLoading(false);
-      toast.error("Erro ao realizar cadastro!");
+      console.log(error)
+      setLoading(false)
+      toast.error("Erro ao realizar cadastro!")
     }
-  };
+  }
 
   const handleRegister = (data) => {
-    userRegister(data);
-  };
-    return (
-        <>
-           <ToastContainer />
-            <StyledForm className="flex flex-column" onSubmit={handleSubmit(handleRegister)}>
-            
-            <div>
+    userRegister(data)
+  }
+  return (
+    <>
+      <ToastContainer />
+      <StyledForm className="flex flex-column" onSubmit={handleSubmit(handleRegister)}>
+
+        <div>
           <h2>Crie sua conta</h2>
           <p>Rápido e grátis, vamos nessa</p>
         </div>
-        <Input
+        <InputDefault
           label="Nome"
           id="name"
           error={errors.name?.message}
@@ -53,7 +53,7 @@ export const FormRegister = () => {
           {...register("name")}
         />
 
-        <Input
+        <InputDefault
           label="Email"
           id="email"
           error={errors.email?.message}
@@ -62,7 +62,7 @@ export const FormRegister = () => {
           {...register("email")}
         />
 
-        <Input
+        <InputDefault
           label="Senha"
           id="password"
           error={errors.password?.message}
@@ -71,7 +71,7 @@ export const FormRegister = () => {
           {...register("password")}
         />
 
-        <Input
+        <InputDefault
           label="Confirme sua senha"
           id="confirm_password"
           error={errors.confirm_password?.message}
@@ -80,7 +80,7 @@ export const FormRegister = () => {
           {...register("confirm_password")}
         />
 
-        <Input
+        <InputDefault
           label="Bio"
           id="bio"
           error={errors.bio?.message}
@@ -89,7 +89,7 @@ export const FormRegister = () => {
           {...register("bio")}
         />
 
-        <Input
+        <InputDefault
           label="Opção de contato"
           id="contact"
           error={errors.contact?.message}
@@ -111,7 +111,7 @@ export const FormRegister = () => {
           {loading ? "Cadastrando..." : "Cadastrar"}
         </button>
 
-            </StyledForm>
-        </>
-    )
+      </StyledForm>
+    </>
+  )
 }

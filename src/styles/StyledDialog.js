@@ -2,24 +2,29 @@ import styled from "styled-components";
 
 export const StyledDialog = styled.dialog`
     
-    max-width: 369px;
-    max-height: 342px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    border-radius: 4px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
 
+    .modal-content {
+        padding: 20px;
+        border-radius: 5px;
+        max-width: 342px;
+        width: 100%;
+
+    }
 
     header{
         background-color: var(--grey-2);
         padding: 12px 20px;
-
+        border-radius: 5px 5px 0 0;
         h2{
             color: var(--grey-0);
             font-weight: var(--weight-700);
@@ -41,7 +46,7 @@ export const StyledDialog = styled.dialog`
         gap: 20px;
         background-color: var(--grey-3);
         height: 100%;
-
+        border-radius: 0 0 5px 5px;
         label{
             color: var(--grey-0);
             font-weight: var(--weight-400);
@@ -57,6 +62,19 @@ export const StyledDialog = styled.dialog`
             border: 1px solid var(--grey-0);
             border-radius: 4px;
             font-size: var(--font-16);
+        }
+
+        .buttons-form{
+            gap: 10px;
+
+            button:first-of-type{
+                width: 204px;
+            }
+            button:last-of-type{
+                width: 98px;
+                background-color: var(--grey-1);
+                color: var(--white);
+            }
         }
 
         button{

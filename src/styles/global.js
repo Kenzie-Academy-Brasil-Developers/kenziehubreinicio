@@ -57,6 +57,10 @@ export const GlobalStyle = createGlobalStyle`
 
     .flex-column {
         flex-direction: column;
+    }   
+
+    .gap-15{
+        gap: 15px;
     }
 
     body{

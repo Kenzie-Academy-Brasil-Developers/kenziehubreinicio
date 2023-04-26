@@ -1,4 +1,4 @@
-import { HeaderPages } from "../../components/header"
+import { HeaderPages } from "../../components/HeaderPages"
 import Logo from "../../assets/logo.svg"
 import { FormRegister } from "../../components/FormRegister"
 import { Link } from "react-router-dom"

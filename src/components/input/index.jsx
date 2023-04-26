@@ -1,6 +1,6 @@
 import { forwardRef } from "react"
 
-export const Input = forwardRef(({label, id, error, ...rest }, ref) => {
+export const InputDefault = forwardRef(({label, id, error, ...rest }, ref) => {
     return(
         <>
             {label ? <label htmlFor={id}>{label}</label> : null}

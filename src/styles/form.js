@@ -39,7 +39,6 @@ export const StyledForm = styled.form`
 
     button{
         margin-top: 10px;
-        margin-bottom: 34px;
         padding: 10px 0;
         font-size: var(--font-16);
         font-weight: var(--weight-500);

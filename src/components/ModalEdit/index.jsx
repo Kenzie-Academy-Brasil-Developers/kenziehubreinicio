@@ -1,10 +1,14 @@
 import { useState } from "react"
 import { StyledDialog } from "../../styles/StyledDialog"
 import { InputDefault } from "../Input"
+import { TechContext } from "../../providers/TechProvider"
+import { useContext } from "react"
 
-export const ModalEditTechnology = ({ technology, showModal, setShowModal, handleEdit, handleDelete, setSelectedTechnology }) => {
+export const ModalEditTechnology = ({ technology, setSelectedTechnology }) => {
+  
+  const { handleRemoveTechnology, handleEdit, status, setStatus,setShowModal,showModal} = useContext(TechContext)
+  
   const [description, setDescription] = useState(technology.description)
-  const [status, setStatus] = useState(technology.status)
 
   const handleClose = () => {
     setDescription(technology.description)
@@ -18,8 +22,9 @@ export const ModalEditTechnology = ({ technology, showModal, setShowModal, handl
     setShowModal(false)
   }
 
+
   const handleDeleteClick = () => {
-    handleDelete(technology.id)
+    handleRemoveTechnology(technology.id)
     setSelectedTechnology(null)
   }
 

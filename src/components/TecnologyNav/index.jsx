@@ -1,64 +1,17 @@
-import { toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
-import { AuthContext } from "../../providers/AuthProvider"
-import { api } from "../../services/api"
 import { StyledDialog } from "../../styles/StyledDialog"
 import { TecnologyTitleStyled } from "../../styles/TecnologyTitleStyled"
 import { StyledSectionTecnology } from "../../styles/tecnologySection"
 import { InputDefault } from "../Input"
 import { ListTecnologys } from "../ListTecnologys"
-import { useState, useRef, useContext } from "react"
+import { useContext } from "react"
+import { TechContext } from "../../providers/TechProvider"
 
 
 export const SectionTecnology = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false)
-    const { technologys, setTechnologys } = useContext(AuthContext)
-
-    const [title, setTitle] = useState('')
-    const [status, setStatus] = useState('Iniciante')
-
-    const modalRef = useRef()
 
 
-    const handleUpdateTechnologies = (newTechnologies) => {
-        setTechnologys(newTechnologies)
-    }
-
-
-    const token = localStorage.getItem("kenziehub:token")
-
-    const handleModalClick = (e) => {
-        if (modalRef.current && modalRef.current.contains(e.target)) {
-            return
-        }
-        setIsModalOpen(false)
-    }
-
-    const handleAddTechnology = async (e) => {
-        e.preventDefault()
-        const newTechnology = {
-            title: title,
-            status: status
-        }
-        try {
-            const response = await api.post("/users/techs", newTechnology, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            })
-            const updatedTechs = [...technologys, response.data]
-            setTechnologys(updatedTechs)
-            handleUpdateTechnologies(updatedTechs)
-
-            setIsModalOpen(false)
-
-            toast.success('Tecnologia adicionada com sucesso!')
-        } catch (error) {
-            console.error(error)
-            toast.error('Erro ao adicionar tecnologia!')
-        }
-    }
-
+    const { technologys, setTitle, handleAddTechnology,status,setStatus, isModalOpen, setIsModalOpen,handleModalClick,handleUpdateTechnologies,modalRef } = useContext(TechContext)
 
 
     return (
